@@ -6,6 +6,7 @@ import { useFrameworkReady } from '@/hooks/useFrameworkReady';
 import { AuthProvider } from '@/hooks/useAuth';
 import { ThemeProvider } from '@/hooks/useTheme';
 import { SplashScreen } from 'expo-router';
+import CustomSplashScreen from '@/components/SplashScreen';
 
 export default function RootLayout() {
   useFrameworkReady();
@@ -23,7 +24,7 @@ export default function RootLayout() {
   }, [fontsLoaded, fontError]);
 
   if (!fontsLoaded && !fontError) {
-    return null;
+    return <CustomSplashScreen />;
   }
 
   return (
